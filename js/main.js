@@ -38,10 +38,13 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// LOGIC XỬ LÝ DỮ LIỆU
+// LOGIC XỬ LÝ DỮ LIỆU VÀ XÓA CACHE TỰ ĐỘNG
 window.addEventListener('DOMContentLoaded', async () => {
+    // ÉP TỪ VỰNG LUÔN TRÊN 1 DÒNG (Chống rớt chữ)
+    document.getElementById('flash-word-front').style.whiteSpace = 'nowrap';
+    document.getElementById('flash-word-back').style.whiteSpace = 'nowrap';
+
     try {
-        // TỰ ĐỘNG XÓA CACHE: Thêm tham số thời gian và cờ no-store để luôn lấy file mới nhất
         const timestamp = new Date().getTime();
         const response = await fetch(`./vocabulary.txt?t=${timestamp}`, { cache: 'no-store' });
         if (!response.ok) throw new Error('File not found');
@@ -67,28 +70,43 @@ function parseVocabText(text) {
         line = line.trim();
         if (!line) continue;
         
-        // LOGIC MỚI: Nhận diện màn chơi bắt đầu bằng dấu *
+        // NHẬN DIỆN MÀN CHƠI
         if (line.startsWith('*')) {
-            // Cắt bỏ dấu * đầu tiên và khoảng trắng, lấy trọn vẹn phần tên phía sau
             currentList = line.substring(1).trim(); 
             vocabData[currentList] = []; 
             currentWord = null;
-        } else if (/^\d+\./.test(line)) {
+        } 
+        // BẮT LỖI CỨNG CÁP: Chấp nhận mọi format (1., 1), 1-, hoặc lỡ thiếu dấu hai chấm :)
+        else if (/^\d+[\.\)\-]?\s*/.test(line)) {
             const colonIndex = line.indexOf(':');
-            if (colonIndex !== -1) {
-                let rawWord = line.substring(line.indexOf('.') + 1, colonIndex).trim();
-                let wordMain = rawWord;
-                let wordType = '';
-                const typeMatch = rawWord.match(/\s*\((.*?)\)\s*/);
-                if (typeMatch) {
-                    wordType = `(${typeMatch[1]})`;
-                    wordMain = rawWord.replace(typeMatch[0], '').trim();
-                }
-                let meaningPart = line.substring(colonIndex + 1).trim();
-                currentWord = { wordMain: wordMain, wordType: wordType, meaning: meaningPart };
-                if (currentList) vocabData[currentList].push(currentWord);
+            let rawWord = '';
+            let meaningPart = '';
+            
+            const numMatch = line.match(/^\d+[\.\)\-]?\s*/);
+            const startIndex = numMatch ? numMatch[0].length : 0;
+            
+            if (colonIndex !== -1 && colonIndex > startIndex) {
+                rawWord = line.substring(startIndex, colonIndex).trim();
+                meaningPart = line.substring(colonIndex + 1).trim();
+            } else {
+                rawWord = line.substring(startIndex).trim(); // Bắt trọn chữ dù thiếu dấu ":"
+                meaningPart = ''; 
             }
-        } else if (currentWord) { currentWord.meaning += '<br>' + line; }
+
+            let wordMain = rawWord;
+            let wordType = '';
+            const typeMatch = rawWord.match(/\s*\((.*?)\)\s*/);
+            if (typeMatch) {
+                wordType = `(${typeMatch[1]})`;
+                wordMain = rawWord.replace(typeMatch[0], '').trim();
+            }
+            
+            currentWord = { wordMain: wordMain, wordType: wordType, meaning: meaningPart };
+            if (currentList) vocabData[currentList].push(currentWord);
+        } 
+        else if (currentWord) { 
+            currentWord.meaning += '<br>' + line; 
+        }
     }
 }
 
@@ -113,12 +131,13 @@ function shuffleArray(array) {
     }
 }
 
+// BỘ ĐẾM CHÍNH XÁC: "Từ: 1 / 200"
 function updateProgress() {
     const remaining = currentLevelPool.length + (currentWordObj ? 1 : 0);
     const done = totalWordsInLevel - remaining + 1;
     let percent = (done / totalWordsInLevel) * 100;
     document.getElementById('progress-bar').style.width = Math.min(percent, 100) + '%';
-    document.getElementById('stats-text').textContent = `Còn ${remaining - 1} từ`;
+    document.getElementById('stats-text').textContent = `${done} / ${totalWordsInLevel}`;
 }
 
 function autoScaleText() {
