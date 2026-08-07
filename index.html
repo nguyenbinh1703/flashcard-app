@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Flashcard Pro - Educational Standard</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F3F4F6; 
+            --text-main: #1F2937; 
+            --text-muted: #6B7280;
+            --card-bg: #FFFFFF;
+            --primary-color: #2563EB; 
+            --btn-note: #EA580C;
+            --btn-done: #16A34A;
+            --border-color: #E5E7EB;
+            --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+            --card-bg-bottom: rgba(243, 244, 246, 0.6);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #111827; 
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --card-bg: #1F2937;
+            --primary-color: #3B82F6;
+            --btn-note: #F97316;
+            --btn-done: #22C55E;
+            --border-color: #374151;
+            --card-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+            --card-bg-bottom: rgba(17, 24, 39, 0.4);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+
+        body, html {
+            height: 100vh; font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color); color: var(--text-main);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow: hidden; 
+            padding-top: env(safe-area-inset-top); padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right);
+        }
+
+        .app-container {
+            display: flex; flex-direction: column; height: 100%;
+            max-width: 900px; margin: 0 auto; padding: 15px; 
+        }
+
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-bottom: 15px;
+            transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+            max-height: 100px; opacity: 1; overflow: hidden;
+        }
+        .header h2 { font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 800; letter-spacing: -0.5px; }
+        .header.zen-mode { max-height: 0; opacity: 0; padding-bottom: 0; pointer-events: none; }
+
+        #theme-toggle {
+            background-color: transparent; color: var(--text-main);
+            border: 2px solid var(--border-color);
+            padding: 8px 16px; font-size: 1rem; border-radius: 12px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s;
+        }
+
+        .screen { display: none; flex: 1; flex-direction: column; height: 100%; width: 100%; }
+        .screen.active { display: flex; }
+
+        .level-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+            gap: 15px; overflow-y: auto; flex: 1; padding-bottom: 20px;
+        }
+        .level-btn {
+            background-color: var(--primary-color); color: white; min-height: 100px; border-radius: 20px; border: none;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); font-size: 1.25rem; font-weight: 700;
+            cursor: pointer; transition: transform 0.1s;
+        }
+        .level-btn:active { transform: scale(0.95); }
+        .level-btn small { font-weight: 400; font-size: 0.95rem; margin-top: 6px; opacity: 0.85; }
+
+        .progress-wrapper { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .progress-container { flex: 1; height: 8px; background-color: var(--border-color); border-radius: 10px; overflow: hidden; }
+        .progress-bar { height: 100%; background-color: var(--primary-color); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .stats-text { font-size: 1rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+
+        /* VÙNG CHỨA THẺ & HIỆU ỨNG BAY (FLY) */
+        .card-scene {
+            flex: 1; perspective: 2000px; margin-bottom: 15px; width: 100%;
+        }
+        
+        /* Chuyển động bay ra ngoài (Trái) */
+        @keyframes flyOutLeft {
+            0% { transform: translateX(0) rotate(0); opacity: 1; }
+            100% { transform: translateX(-120vw) rotate(-10deg); opacity: 0; }
+        }
+        /* Chuyển động bay vào trong (Từ Phải) */
+        @keyframes flyInRight {
+            0% { transform: translateX(120vw) rotate(10deg); opacity: 0; }
+            100% { transform: translateX(0) rotate(0); opacity: 1; }
+        }
+
+        .animate-fly-out {
+            animation: flyOutLeft 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .animate-fly-in {
+            animation: flyInRight 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.2) forwards; /* Có độ nảy nhẹ khi đáp */
+        }
+
+        /* LÕI THẺ BÀI: ĐẢM NHIỆM HIỆU ỨNG LẬT 3D */
+        .card-inner {
+            width: 100%; height: 100%; position: relative;
+            transition: transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style: preserve-3d;
+        }
+        .card-inner.is-flipped { transform: rotateY(-180deg); }
+
+        .card-face {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden; 
+            background: var(--card-bg); border-radius: clamp(20px, 5vw, 32px);
+            box-shadow: var(--card-shadow); border: 2px solid var(--border-color);
+            overflow: hidden; 
+        }
+        
+        .card-front {
+            display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .card-back {
+            transform: rotateY(180deg); display: flex; flex-direction: column;
+        }
+
+        .word-section {
+            flex: 0.618; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; width: 100%; padding: 15px 20px; overflow: hidden; min-height: 0; 
+        }
+
+        .meaning-section {
+            flex: 1; background-color: var(--card-bg-bottom); border-top: 3px dashed var(--border-color);
+            padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center;
+            overflow: hidden; min-height: 0; 
+        }
+
+        .word-main {
+            font-size: clamp(2.5rem, 12vw, 6.5rem); font-weight: 800; color: var(--primary-color);
+            line-height: 1.1; letter-spacing: -0.02em; word-wrap: break-word; width: 100%;
+        }
+
+        .word-type {
+            font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--text-muted); font-weight: 600; font-style: italic; margin-top: 10px;
+        }
+
+        .meaning {
+            font-size: clamp(1.5rem, 6vw, 3.5rem); line-height: 1.5; font-weight: 600; width: 100%; color: var(--text-main);
+        }
+        .meaning i { color: var(--primary-color); font-weight: 700; opacity: 0.9; }
+
+        .audio-controls { display: flex; gap: 15px; margin-top: clamp(15px, 2vh, 25px); }
+        .audio-btn {
+            background-color: var(--bg-color); border: 2px solid var(--border-color);
+            color: var(--text-main); border-radius: 40px; cursor: pointer;
+            padding: 10px 20px; font-size: clamp(1rem, 3vw, 1.25rem); font-weight: 700;
+            display: flex; align-items: center; gap: 8px; font-family: inherit;
+            transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .audio-btn:hover, .audio-btn:active { border-color: var(--primary-color); color: var(--primary-color); transform: scale(0.95); }
+
+        .controls { display: flex; gap: 15px; width: 100%; min-height: clamp(65px, 8vh, 85px); }
+        .btn-large {
+            flex: 1; border-radius: clamp(16px, 4vw, 24px); border: none; cursor: pointer;
+            font-size: clamp(1.2rem, 4vw, 1.6rem); font-weight: 700; font-family: inherit;
+            transition: transform 0.1s; display: flex; align-items: center; justify-content: center;
+        }
+        .btn-large:active { transform: scale(0.95); }
+        
+        #btn-key { background-color: var(--text-main); color: var(--bg-color); width: 100%; }
+        #btn-note, #btn-done { display: none; }
+        #btn-note { background-color: var(--btn-note); color: white; }
+        #btn-done { background-color: var(--btn-done); color: white; }
+
+        .shortcut-hint { font-size: 0.95rem; color: var(--text-muted); margin-top: 15px; text-align: center; font-weight: 600; display: none; }
+        @media (min-width: 768px) { .shortcut-hint { display: block; } }
+
+        #fallback-upload { text-align: center; background: var(--card-bg); padding: 40px 20px; border-radius: 24px; border: 2px dashed var(--border-color); margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="header" id="main-header">
+            <h2>🔥 Flashcard Pro</h2>
+            <button id="theme-toggle">🌙 Chế Độ Tối</button>
+        </div>
+
+        <div id="setup-screen" class="screen">
+            <div id="fallback-upload">
+                <h3 style="color: #EA580C; font-size: 1.5rem; margin-bottom: 10px;">⚠️ Chạy Offline / Lỗi CORS</h3>
+                <p style="font-size: 1.1rem; color: var(--text-muted);">Vui lòng tải file <b>vocabulary.txt</b> của bạn lên để bắt đầu học.</p>
+                <input type="file" id="file-input" accept=".txt" style="margin-top: 20px; font-size: 1.1rem;">
+            </div>
+        </div>
+
+        <div id="level-screen" class="screen">
+            <div id="level-container" class="level-grid"></div>
+        </div>
+
+        <div id="play-screen" class="screen">
+            <div class="progress-wrapper">
+                <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+                <div class="stats-text" id="stats-text">0 từ</div>
+            </div>
+            
+            <div class="card-scene" id="card-scene">
+                <div class="card-inner" id="flash-card">
+                    <!-- MẶT TRƯỚC -->
+                    <div class="card-face card-front">
+                        <div class="word-section card-front-section" style="flex:1;">
+                            <div class="word-main" id="flash-word-front">word</div>
+                            <div class="word-type" id="flash-type-front"></div>
+                            <div class="audio-controls">
+                                <button class="audio-btn btn-us">US</button>
+                                <button class="audio-btn btn-uk">UK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MẶT SAU -->
+                    <div class="card-face card-back">
+                        <div class="word-section card-back-word-section">
+                            <div class="word-main" id="flash-word-back">word</div>
+                            <div class="word-type" id="flash-type-back"></div>
+                            <div class="audio-controls">
+                                <button class="audio-btn btn-us">US</button>
+                                <button class="audio-btn btn-uk">UK</button>
+                            </div>
+                        </div>
+                        <div class="meaning-section card-back-meaning-section">
+                            <div class="meaning" id="flash-meaning">nghĩa của từ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="btn-key" class="btn-large">🔑 Đáp Án</button>
+                <button id="btn-note" class="btn-large">🤔 Quên</button>
+                <button id="btn-done" class="btn-large">✔️ Thuộc</button>
+            </div>
+        </div>
+
+        <div id="end-screen" class="screen" style="justify-content: center; align-items: center; text-align: center;">
+            <h1 style="font-size: clamp(5rem, 15vw, 8rem); margin: 0;">🎉</h1>
+            <h2 style="font-size: clamp(2rem, 6vw, 3rem); margin: 15px 0;">Hoàn Thành!</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px;">Bạn đã ghi nhớ xuất sắc.</p>
+            <button class="btn-large" onclick="showScreen('level-screen')" style="background-color: var(--primary-color); color: white; width: 100%; max-width: 400px; min-height: 70px;">📚 Chọn bài khác</button>
+        </div>
+    </div>
+
+    <script>
+        let vocabData = {};
+        let currentLevelPool = [];
+        let currentWordObj = null;
+        let totalWordsInLevel = 0;
+        let isCardFlipped = false;
+
+        const themeToggle = document.getElementById('theme-toggle');
+        const header = document.getElementById('main-header');
+        const cardInner = document.getElementById('flash-card');
+        const cardScene = document.getElementById('card-scene');
+        
+        let isDarkMode = false;
+        themeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            document.body.setAttribute('data-theme', isDarkMode ? 'dark' : '');
+            themeToggle.innerText = isDarkMode ? '☀️ Chế Độ Sáng' : '🌙 Chế Độ Tối';
+            if(!isDarkMode) document.body.removeAttribute('data-theme');
+        });
+
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            if(screenId === 'play-screen') header.classList.add('zen-mode');
+            else header.classList.remove('zen-mode');
+        }
+
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('./vocabulary.txt');
+                if (!response.ok) throw new Error('File not found');
+                parseVocabText(await response.text());
+                renderLevels();
+            } catch (error) { showScreen('setup-screen'); }
+        });
+
+        document.getElementById('file-input').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = e => { parseVocabText(e.target.result); renderLevels(); };
+            reader.readAsText(file);
+        });
+
+        function parseVocabText(text) {
+            vocabData = {};
+            const lines = text.split('\n');
+            let currentList = '', currentWord = null;
+
+            for (let line of lines) {
+                line = line.trim();
+                if (!line) continue;
+                if (line.toLowerCase().startsWith('list')) {
+                    currentList = line; vocabData[currentList] = []; currentWord = null;
+                } else if (/^\d+\./.test(line)) {
+                    const colonIndex = line.indexOf(':');
+                    if (colonIndex !== -1) {
+                        let rawWord = line.substring(line.indexOf('.') + 1, colonIndex).trim();
+                        let wordMain = rawWord;
+                        let wordType = '';
+                        const typeMatch = rawWord.match(/\s*\((.*?)\)\s*/);
+                        if (typeMatch) {
+                            wordType = `(${typeMatch[1]})`;
+                            wordMain = rawWord.replace(typeMatch[0], '').trim();
+                        }
+                        let meaningPart = line.substring(colonIndex + 1).trim();
+                        currentWord = { wordMain: wordMain, wordType: wordType, meaning: meaningPart };
+                        if (currentList) vocabData[currentList].push(currentWord);
+                    }
+                } else if (currentWord) { currentWord.meaning += '<br>' + line; }
+            }
+        }
+
+        function renderLevels() {
+            const container = document.getElementById('level-container');
+            container.innerHTML = '';
+            for (const listName in vocabData) {
+                if(vocabData[listName].length === 0) continue;
+                const btn = document.createElement('button');
+                btn.className = 'level-btn';
+                btn.innerHTML = `${listName}<small>${vocabData[listName].length} từ</small>`;
+                btn.onclick = () => startLevel(listName);
+                container.appendChild(btn);
+            }
+            showScreen('level-screen');
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function updateProgress() {
+            const remaining = currentLevelPool.length + (currentWordObj ? 1 : 0);
+            const done = totalWordsInLevel - remaining + 1;
+            let percent = (done / totalWordsInLevel) * 100;
+            document.getElementById('progress-bar').style.width = Math.min(percent, 100) + '%';
+            document.getElementById('stats-text').innerText = `Còn ${remaining - 1} từ`;
+        }
+
+        // Thuật toán bóp cỡ chữ chống Scroll
+        function autoScaleText() {
+            const regions = [
+                { container: document.querySelector('.card-front-section'), text: document.getElementById('flash-word-front') },
+                { container: document.querySelector('.card-back-word-section'), text: document.getElementById('flash-word-back') },
+                { container: document.querySelector('.card-back-meaning-section'), text: document.getElementById('flash-meaning') }
+            ];
+            regions.forEach(region => {
+                region.text.style.fontSize = ''; 
+                let currentFontSize = parseFloat(window.getComputedStyle(region.text).fontSize);
+                while (region.container.scrollHeight > Math.ceil(region.container.clientHeight) && currentFontSize > 14) {
+                    currentFontSize -= 1; 
+                    region.text.style.fontSize = currentFontSize + 'px';
+                }
+            });
+        }
+        window.addEventListener('resize', () => { if(currentWordObj) autoScaleText(); });
+
+        // Hàm nạp dữ liệu từ mới vào UI (Trả về true nếu còn từ, false nếu hết)
+        function showNextWordData() {
+            if (currentLevelPool.length === 0) {
+                showScreen('end-screen');
+                return false;
+            }
+            currentWordObj = currentLevelPool.shift();
+            updateProgress();
+
+            document.getElementById('flash-word-front').innerText = currentWordObj.wordMain;
+            document.getElementById('flash-type-front').innerText = currentWordObj.wordType;
+            document.getElementById('flash-type-front').style.display = currentWordObj.wordType ? 'block' : 'none';
+            
+            document.getElementById('flash-word-back').innerText = currentWordObj.wordMain;
+            document.getElementById('flash-type-back').innerText = currentWordObj.wordType;
+            document.getElementById('flash-type-back').style.display = currentWordObj.wordType ? 'block' : 'none';
+            
+            document.getElementById('flash-meaning').innerHTML = currentWordObj.meaning;
+            
+            document.getElementById('btn-key').style.display = 'flex';
+            document.getElementById('btn-note').style.display = 'none';
+            document.getElementById('btn-done').style.display = 'none';
+            
+            requestAnimationFrame(autoScaleText);
+            return true;
+        }
+
+        function startLevel(listName) {
+            currentLevelPool = [...vocabData[listName]];
+            totalWordsInLevel = currentLevelPool.length;
+            shuffleArray(currentLevelPool);
+            showScreen('play-screen');
+            
+            // Ép thẻ về mặt trước mà không có animation
+            cardInner.style.transition = 'none';
+            cardInner.classList.remove('is-flipped');
+            isCardFlipped = false;
+            
+            showNextWordData();
+            
+            // Bay thẻ đầu tiên vào màn hình
+            requestAnimationFrame(() => {
+                cardInner.style.transition = ''; // Khôi phục lật 3D
+                cardScene.classList.add('animate-fly-in');
+                setTimeout(() => cardScene.classList.remove('animate-fly-in'), 400);
+            });
+        }
+
+        // HÀM ĐIỀU PHỐI ANIMATION KHI ĐỔI TỪ
+        function animateAndNext() {
+            // Ngăn chặn bấm liên tục
+            document.getElementById('btn-note').style.pointerEvents = 'none';
+            document.getElementById('btn-done').style.pointerEvents = 'none';
+
+            // 1. Quăng thẻ cũ đi (Fly out)
+            cardScene.classList.remove('animate-fly-in');
+            cardScene.classList.add('animate-fly-out');
+            
+            // Đợi 350ms cho thẻ bay hẳn ra khỏi màn hình
+            setTimeout(() => {
+                // 2. Trong lúc tàng hình, reset thẻ về mặt trước (Không animation)
+                cardInner.style.transition = 'none'; 
+                cardInner.classList.remove('is-flipped');
+                isCardFlipped = false;
+                
+                // 3. Nạp dữ liệu từ mới
+                const hasNext = showNextWordData();
+                
+                if (hasNext) {
+                    // 4. Nếu còn từ, bay thẻ mới vào (Fly in)
+                    requestAnimationFrame(() => {
+                        cardInner.style.transition = ''; // Bật lại 3D Flip
+                        cardScene.classList.remove('animate-fly-out');
+                        cardScene.classList.add('animate-fly-in');
+                        
+                        setTimeout(() => {
+                            cardScene.classList.remove('animate-fly-in');
+                            // Khôi phục nút bấm
+                            document.getElementById('btn-note').style.pointerEvents = 'auto';
+                            document.getElementById('btn-done').style.pointerEvents = 'auto';
+                        }, 400);
+                    });
+                } else {
+                    // Nếu hết từ, dọn dẹp
+                    cardScene.classList.remove('animate-fly-out');
+                    cardInner.style.transition = '';
+                    document.getElementById('btn-note').style.pointerEvents = 'auto';
+                    document.getElementById('btn-done').style.pointerEvents = 'auto';
+                }
+            }, 350);
+        }
+
+        function flipCard() {
+            isCardFlipped = true;
+            cardInner.classList.add('is-flipped');
+            document.getElementById('btn-key').style.display = 'none';
+            document.getElementById('btn-note').style.display = 'flex';
+            document.getElementById('btn-done').style.display = 'flex';
+        }
+
+        function markDone() { 
+            if(isCardFlipped) animateAndNext(); 
+        }
+        
+        function markNote() {
+            if(!isCardFlipped) return;
+            if (currentLevelPool.length > 0) {
+                const randomIndex = Math.floor(Math.random() * currentLevelPool.length);
+                currentLevelPool.splice(randomIndex, 0, currentWordObj);
+            } else {
+                currentLevelPool.push(currentWordObj);
+            }
+            totalWordsInLevel++; 
+            animateAndNext();
+        }
+
+        document.getElementById('btn-key').addEventListener('click', flipCard);
+        document.getElementById('btn-done').addEventListener('click', markDone);
+        document.getElementById('btn-note').addEventListener('click', markNote);
+
+        function playAudio(lang) {
+            if ('speechSynthesis' in window && currentWordObj) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(currentWordObj.wordMain);
+                utterance.lang = lang; 
+                utterance.rate = 0.85; 
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        document.querySelectorAll('.btn-us').forEach(btn => {
+            btn.addEventListener('click', (e) => { e.stopPropagation(); playAudio('en-US'); });
+        });
+        document.querySelectorAll('.btn-uk').forEach(btn => {
+            btn.addEventListener('click', (e) => { e.stopPropagation(); playAudio('en-GB'); });
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('play-screen').classList.contains('active')) {
+                if (e.code === 'Space') { e.preventDefault(); if (!isCardFlipped) flipCard(); } 
+                else if (e.code === 'ArrowRight' && isCardFlipped) { markDone(); } 
+                else if (e.code === 'ArrowLeft' && isCardFlipped) { markNote(); } 
+                else if (e.code === 'KeyS') { playAudio('en-US'); }
+                else if (e.code === 'KeyD') { playAudio('en-GB'); }
+            }
+        });
+    </script>
+</body>
+</html>
