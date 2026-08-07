@@ -157,11 +157,9 @@ function startLevel(listName) {
     
     showNextWordData();
     
-    // Bay thẻ đầu tiên vào màn hình
+    // Phục hồi hiệu ứng lật 3D, NHƯNG KHÔNG gọi hiệu ứng bay (tránh lag từ đầu tiên)
     requestAnimationFrame(() => {
-        cardInner.style.transition = ''; // Khôi phục lật 3D
-        cardScene.classList.add('animate-fly-in');
-        setTimeout(() => cardScene.classList.remove('animate-fly-in'), 400);
+        cardInner.style.transition = ''; 
     });
 }
 
@@ -262,4 +260,14 @@ document.addEventListener('keydown', (e) => {
         else if (e.code === 'KeyS') { playAudio('en-US'); }
         else if (e.code === 'KeyD') { playAudio('en-GB'); }
     }
+});
+
+// Xử lý sự kiện nút Back
+document.getElementById('btn-back').addEventListener('click', () => {
+    // Tắt âm thanh nếu nó đang đọc dở dang
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
+    // Trở về màn hình chọn bài
+    showScreen('level-screen');
 });
