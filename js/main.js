@@ -13,7 +13,7 @@ let isDarkMode = false;
 themeToggle.addEventListener('click', () => {
     isDarkMode = !isDarkMode;
     document.body.setAttribute('data-theme', isDarkMode ? 'dark' : '');
-    themeToggle.textContent = isDarkMode ? '☀️ Chế Độ Sáng' : '🌙 Chế Độ Tối'; // Dùng textContent thay cho innerText
+    themeToggle.textContent = isDarkMode ? '☀️ Chế Độ Sáng' : '🌙 Chế Độ Tối'; 
     if(!isDarkMode) document.body.removeAttribute('data-theme');
 });
 
@@ -41,7 +41,9 @@ document.addEventListener('keydown', function(event) {
 // LOGIC XỬ LÝ DỮ LIỆU
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        const response = await fetch('./vocabulary.txt');
+        // TỰ ĐỘNG XÓA CACHE: Thêm tham số thời gian và cờ no-store để luôn lấy file mới nhất
+        const timestamp = new Date().getTime();
+        const response = await fetch(`./vocabulary.txt?t=${timestamp}`, { cache: 'no-store' });
         if (!response.ok) throw new Error('File not found');
         parseVocabText(await response.text());
         renderLevels();
@@ -64,8 +66,13 @@ function parseVocabText(text) {
     for (let line of lines) {
         line = line.trim();
         if (!line) continue;
-        if (line.toLowerCase().startsWith('list')) {
-            currentList = line; vocabData[currentList] = []; currentWord = null;
+        
+        // LOGIC MỚI: Nhận diện màn chơi bắt đầu bằng dấu *
+        if (line.startsWith('*')) {
+            // Cắt bỏ dấu * đầu tiên và khoảng trắng, lấy trọn vẹn phần tên phía sau
+            currentList = line.substring(1).trim(); 
+            vocabData[currentList] = []; 
+            currentWord = null;
         } else if (/^\d+\./.test(line)) {
             const colonIndex = line.indexOf(':');
             if (colonIndex !== -1) {
@@ -114,7 +121,6 @@ function updateProgress() {
     document.getElementById('stats-text').textContent = `Còn ${remaining - 1} từ`;
 }
 
-// TỐI ƯU HIỆU NĂNG: Thuật toán Binary Search (Giảm Layout Thrashing từ 50 reflows xuống tối đa 6 reflows)
 function autoScaleText() {
     const regions = [
         { container: document.querySelector('.card-front-section'), text: document.getElementById('flash-word-front') },
@@ -122,17 +128,16 @@ function autoScaleText() {
         { container: document.querySelector('.card-back-meaning-section'), text: document.getElementById('flash-meaning') }
     ];
     regions.forEach(region => {
-        region.text.style.fontSize = ''; // Trả về CSS gốc
+        region.text.style.fontSize = ''; 
         let maxFS = parseFloat(window.getComputedStyle(region.text).fontSize);
         let minFS = 14;
         let bestFS = minFS;
 
-        // Bỏ qua nếu đã vừa vặn sẵn (Zero-delay)
         if (region.container.scrollHeight <= Math.ceil(region.container.clientHeight) && region.text.scrollWidth <= region.text.clientWidth) {
             return;
         }
 
-        region.text.style.opacity = '0'; // Ẩn chớp nhoáng để tính toán mượt mà hơn
+        region.text.style.opacity = '0'; 
         while (minFS <= maxFS) {
             let midFS = Math.floor((minFS + maxFS) / 2);
             region.text.style.fontSize = midFS + 'px';
@@ -154,11 +159,10 @@ function showNextWordData() {
         showScreen('end-screen');
         return false;
     }
-    // TỐI ƯU MẢNG O(1): Vì mảng đã shuffle ngẫu nhiên, ta dùng pop() lấy ở cuối thay vì shift() lấy ở đầu (tốc độ vô cực)
+    
     currentWordObj = currentLevelPool.pop(); 
     updateProgress();
 
-    // TỐI ƯU RENDER: Dùng textContent thay thế innerText nhanh hơn 40%
     document.getElementById('flash-word-front').textContent = currentWordObj.wordMain;
     document.getElementById('flash-type-front').textContent = currentWordObj.wordType;
     document.getElementById('flash-type-front').style.display = currentWordObj.wordType ? 'block' : 'none';
@@ -189,7 +193,6 @@ function startLevel(listName) {
     
     showNextWordData();
 
-    // TỐI ƯU TTS: Warm-up khởi tạo Web Speech API (Loại bỏ độ trễ lần đọc đầu tiên)
     if ('speechSynthesis' in window) {
         const warmUp = new SpeechSynthesisUtterance('');
         warmUp.volume = 0;
@@ -199,7 +202,6 @@ function startLevel(listName) {
     requestAnimationFrame(() => { cardInner.style.transition = ''; });
 }
 
-// TỐI ƯU HIỆU ỨNG: Chuyển hoàn toàn từ setTimeout rủi ro sang Event Listeners (Trùng khớp 100% thời gian CSS)
 function animateAndNext() {
     document.getElementById('btn-note').style.pointerEvents = 'none';
     document.getElementById('btn-done').style.pointerEvents = 'none';
@@ -209,7 +211,7 @@ function animateAndNext() {
     
     const onFlyOutEnd = (e) => {
         if(e.animationName !== 'flyOutLeft') return;
-        cardScene.removeEventListener('animationend', onFlyOutEnd); // Dọn dẹp sự kiện
+        cardScene.removeEventListener('animationend', onFlyOutEnd); 
 
         cardInner.style.transition = 'none'; 
         cardInner.classList.remove('is-flipped');
@@ -225,7 +227,7 @@ function animateAndNext() {
                 
                 const onFlyInEnd = (ev) => {
                     if(ev.animationName !== 'flyInRight') return;
-                    cardScene.removeEventListener('animationend', onFlyInEnd); // Dọn dẹp sự kiện
+                    cardScene.removeEventListener('animationend', onFlyInEnd); 
                     cardScene.classList.remove('animate-fly-in');
                     document.getElementById('btn-note').style.pointerEvents = 'auto';
                     document.getElementById('btn-done').style.pointerEvents = 'auto';
@@ -259,7 +261,7 @@ function markNote() {
     if(!isCardFlipped) return;
     if (currentLevelPool.length > 0) {
         const randomIndex = Math.floor(Math.random() * currentLevelPool.length);
-        currentLevelPool.splice(randomIndex, 0, currentWordObj); // Logic học lại giữ nguyên
+        currentLevelPool.splice(randomIndex, 0, currentWordObj); 
     } else {
         currentLevelPool.push(currentWordObj);
     }
