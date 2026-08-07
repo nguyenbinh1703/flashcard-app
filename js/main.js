@@ -24,6 +24,25 @@ function showScreen(screenId) {
     else header.classList.remove('zen-mode');
 }
 
+// 1. Khóa Menu Chuột phải (Ngăn mở Inspect)
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+// 2. Khóa các tổ hợp phím F12, Ctrl+U, Ctrl+Shift+I, Ctrl+S
+document.addEventListener('keydown', function(event) {
+    if (
+        event.keyCode === 123 || // Khóa F12
+        (event.ctrlKey && event.shiftKey && event.keyCode === 73) || // Khóa Ctrl + Shift + I (Mở DevTools)
+        (event.ctrlKey && event.shiftKey && event.keyCode === 74) || // Khóa Ctrl + Shift + J (Mở Console)
+        (event.ctrlKey && event.keyCode === 85) || // Khóa Ctrl + U (Xem mã nguồn)
+        (event.ctrlKey && event.keyCode === 83)    // Khóa Ctrl + S (Lưu trang web)
+    ) {
+        event.preventDefault();
+        return false;
+    }
+});
+
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch('./vocabulary.txt');
