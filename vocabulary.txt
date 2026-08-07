@@ -1279,7 +1279,7 @@ list 23
 45.	violate (v): vi phạm quy tắc hoặc luật pháp
 46.	wellness (n): trạng thái khỏe mạnh; không bị bệnh
 47.	workbook (n): sách bài tập
-list test 1 – part 5
+test 1 – part 5
 1.	lecture (n): bài giảng
 2.	guest lecture (n): bài giảng của khách mời
 3.	lecture hall (n): giảng đường
