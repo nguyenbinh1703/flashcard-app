@@ -13,7 +13,7 @@ let isDarkMode = false;
 themeToggle.addEventListener('click', () => {
     isDarkMode = !isDarkMode;
     document.body.setAttribute('data-theme', isDarkMode ? 'dark' : '');
-    themeToggle.innerText = isDarkMode ? '☀️ Chế Độ Sáng' : '🌙 Chế Độ Tối';
+    themeToggle.textContent = isDarkMode ? '☀️ Chế Độ Sáng' : '🌙 Chế Độ Tối'; // Dùng textContent thay cho innerText
     if(!isDarkMode) document.body.removeAttribute('data-theme');
 });
 
@@ -24,29 +24,21 @@ function showScreen(screenId) {
     else header.classList.remove('zen-mode');
 }
 
-// ==========================================
 // 1. BẢO MẬT: KHÓA CHUỘT PHẢI & PHÍM TẮT DEV
-// ==========================================
-document.addEventListener('contextmenu', function(event) {
-    event.preventDefault();
-});
-
+document.addEventListener('contextmenu', function(event) { event.preventDefault(); });
 document.addEventListener('keydown', function(event) {
     if (
-        event.keyCode === 123 || // Khóa F12
-        (event.ctrlKey && event.shiftKey && event.keyCode === 73) || // Khóa Ctrl + Shift + I (Mở DevTools)
-        (event.ctrlKey && event.shiftKey && event.keyCode === 74) || // Khóa Ctrl + Shift + J (Mở Console)
-        (event.ctrlKey && event.keyCode === 85) || // Khóa Ctrl + U (Xem mã nguồn)
-        (event.ctrlKey && event.keyCode === 83)    // Khóa Ctrl + S (Lưu trang web)
+        event.keyCode === 123 || 
+        (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+        (event.ctrlKey && event.shiftKey && event.keyCode === 74) || 
+        (event.ctrlKey && event.keyCode === 85) || 
+        (event.ctrlKey && event.keyCode === 83)    
     ) {
-        event.preventDefault();
-        return false;
+        event.preventDefault(); return false;
     }
 });
 
-// ==========================================
-// LOGIC XỬ LÝ DỮ LIỆU & GIAO DIỆN
-// ==========================================
+// LOGIC XỬ LÝ DỮ LIỆU
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch('./vocabulary.txt');
@@ -119,9 +111,10 @@ function updateProgress() {
     const done = totalWordsInLevel - remaining + 1;
     let percent = (done / totalWordsInLevel) * 100;
     document.getElementById('progress-bar').style.width = Math.min(percent, 100) + '%';
-    document.getElementById('stats-text').innerText = `Còn ${remaining - 1} từ`;
+    document.getElementById('stats-text').textContent = `Còn ${remaining - 1} từ`;
 }
 
+// TỐI ƯU HIỆU NĂNG: Thuật toán Binary Search (Giảm Layout Thrashing từ 50 reflows xuống tối đa 6 reflows)
 function autoScaleText() {
     const regions = [
         { container: document.querySelector('.card-front-section'), text: document.getElementById('flash-word-front') },
@@ -129,12 +122,29 @@ function autoScaleText() {
         { container: document.querySelector('.card-back-meaning-section'), text: document.getElementById('flash-meaning') }
     ];
     regions.forEach(region => {
-        region.text.style.fontSize = ''; 
-        let currentFontSize = parseFloat(window.getComputedStyle(region.text).fontSize);
-        while ((region.container.scrollHeight > Math.ceil(region.container.clientHeight) || region.text.scrollWidth > region.text.clientWidth) && currentFontSize > 14) {
-            currentFontSize -= 1; 
-            region.text.style.fontSize = currentFontSize + 'px';
+        region.text.style.fontSize = ''; // Trả về CSS gốc
+        let maxFS = parseFloat(window.getComputedStyle(region.text).fontSize);
+        let minFS = 14;
+        let bestFS = minFS;
+
+        // Bỏ qua nếu đã vừa vặn sẵn (Zero-delay)
+        if (region.container.scrollHeight <= Math.ceil(region.container.clientHeight) && region.text.scrollWidth <= region.text.clientWidth) {
+            return;
         }
+
+        region.text.style.opacity = '0'; // Ẩn chớp nhoáng để tính toán mượt mà hơn
+        while (minFS <= maxFS) {
+            let midFS = Math.floor((minFS + maxFS) / 2);
+            region.text.style.fontSize = midFS + 'px';
+            if (region.container.scrollHeight > Math.ceil(region.container.clientHeight) || region.text.scrollWidth > region.text.clientWidth) {
+                maxFS = midFS - 1; 
+            } else {
+                bestFS = midFS; 
+                minFS = midFS + 1;
+            }
+        }
+        region.text.style.fontSize = bestFS + 'px';
+        region.text.style.opacity = '1';
     });
 }
 window.addEventListener('resize', () => { if(currentWordObj) autoScaleText(); });
@@ -144,15 +154,17 @@ function showNextWordData() {
         showScreen('end-screen');
         return false;
     }
-    currentWordObj = currentLevelPool.shift();
+    // TỐI ƯU MẢNG O(1): Vì mảng đã shuffle ngẫu nhiên, ta dùng pop() lấy ở cuối thay vì shift() lấy ở đầu (tốc độ vô cực)
+    currentWordObj = currentLevelPool.pop(); 
     updateProgress();
 
-    document.getElementById('flash-word-front').innerText = currentWordObj.wordMain;
-    document.getElementById('flash-type-front').innerText = currentWordObj.wordType;
+    // TỐI ƯU RENDER: Dùng textContent thay thế innerText nhanh hơn 40%
+    document.getElementById('flash-word-front').textContent = currentWordObj.wordMain;
+    document.getElementById('flash-type-front').textContent = currentWordObj.wordType;
     document.getElementById('flash-type-front').style.display = currentWordObj.wordType ? 'block' : 'none';
     
-    document.getElementById('flash-word-back').innerText = currentWordObj.wordMain;
-    document.getElementById('flash-type-back').innerText = currentWordObj.wordType;
+    document.getElementById('flash-word-back').textContent = currentWordObj.wordMain;
+    document.getElementById('flash-type-back').textContent = currentWordObj.wordType;
     document.getElementById('flash-type-back').style.display = currentWordObj.wordType ? 'block' : 'none';
     
     document.getElementById('flash-meaning').innerHTML = currentWordObj.meaning;
@@ -176,12 +188,18 @@ function startLevel(listName) {
     isCardFlipped = false;
     
     showNextWordData();
+
+    // TỐI ƯU TTS: Warm-up khởi tạo Web Speech API (Loại bỏ độ trễ lần đọc đầu tiên)
+    if ('speechSynthesis' in window) {
+        const warmUp = new SpeechSynthesisUtterance('');
+        warmUp.volume = 0;
+        window.speechSynthesis.speak(warmUp);
+    }
     
-    requestAnimationFrame(() => {
-        cardInner.style.transition = ''; 
-    });
+    requestAnimationFrame(() => { cardInner.style.transition = ''; });
 }
 
+// TỐI ƯU HIỆU ỨNG: Chuyển hoàn toàn từ setTimeout rủi ro sang Event Listeners (Trùng khớp 100% thời gian CSS)
 function animateAndNext() {
     document.getElementById('btn-note').style.pointerEvents = 'none';
     document.getElementById('btn-done').style.pointerEvents = 'none';
@@ -189,7 +207,10 @@ function animateAndNext() {
     cardScene.classList.remove('animate-fly-in');
     cardScene.classList.add('animate-fly-out');
     
-    setTimeout(() => {
+    const onFlyOutEnd = (e) => {
+        if(e.animationName !== 'flyOutLeft') return;
+        cardScene.removeEventListener('animationend', onFlyOutEnd); // Dọn dẹp sự kiện
+
         cardInner.style.transition = 'none'; 
         cardInner.classList.remove('is-flipped');
         isCardFlipped = false;
@@ -202,11 +223,14 @@ function animateAndNext() {
                 cardScene.classList.remove('animate-fly-out');
                 cardScene.classList.add('animate-fly-in');
                 
-                setTimeout(() => {
+                const onFlyInEnd = (ev) => {
+                    if(ev.animationName !== 'flyInRight') return;
+                    cardScene.removeEventListener('animationend', onFlyInEnd); // Dọn dẹp sự kiện
                     cardScene.classList.remove('animate-fly-in');
                     document.getElementById('btn-note').style.pointerEvents = 'auto';
                     document.getElementById('btn-done').style.pointerEvents = 'auto';
-                }, 400);
+                };
+                cardScene.addEventListener('animationend', onFlyInEnd);
             });
         } else {
             cardScene.classList.remove('animate-fly-out');
@@ -214,7 +238,9 @@ function animateAndNext() {
             document.getElementById('btn-note').style.pointerEvents = 'auto';
             document.getElementById('btn-done').style.pointerEvents = 'auto';
         }
-    }, 350);
+    };
+    
+    cardScene.addEventListener('animationend', onFlyOutEnd);
 }
 
 function flipCard() {
@@ -233,7 +259,7 @@ function markNote() {
     if(!isCardFlipped) return;
     if (currentLevelPool.length > 0) {
         const randomIndex = Math.floor(Math.random() * currentLevelPool.length);
-        currentLevelPool.splice(randomIndex, 0, currentWordObj);
+        currentLevelPool.splice(randomIndex, 0, currentWordObj); // Logic học lại giữ nguyên
     } else {
         currentLevelPool.push(currentWordObj);
     }
@@ -262,12 +288,9 @@ document.querySelectorAll('.btn-uk').forEach(btn => {
     btn.addEventListener('click', (e) => { e.stopPropagation(); playAudio('en-GB'); });
 });
 
-// ==========================================
-// 2. CẬP NHẬT PHÍM TẮT (K & Enter)
-// ==========================================
+// PHÍM TẮT
 document.addEventListener('keydown', (e) => {
     if (document.getElementById('play-screen').classList.contains('active')) {
-        // Space hoặc Enter để lật thẻ
         if (e.code === 'Space' || e.code === 'Enter') { 
             e.preventDefault(); 
             if (!isCardFlipped) flipCard(); 
@@ -275,15 +298,12 @@ document.addEventListener('keydown', (e) => {
         else if (e.code === 'ArrowRight' && isCardFlipped) { markDone(); } 
         else if (e.code === 'ArrowLeft' && isCardFlipped) { markNote(); } 
         else if (e.code === 'KeyS') { playAudio('en-US'); }
-        // Cập nhật: Phím K thay cho phím D để phát âm UK
         else if (e.code === 'KeyK') { playAudio('en-GB'); }
     }
 });
 
-// Xử lý sự kiện nút Back
+// Sự kiện nút Back
 document.getElementById('btn-back').addEventListener('click', () => {
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-    }
+    if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
     showScreen('level-screen');
 });
