@@ -1,4 +1,4 @@
-list 1
+* list 1
 1.	accountant (n): kế toán, người chịu trách nhiệm về tiền trong một doanh nghiệp
 2.	airport (n): sân bay
 3.	applicant (n): ứng viên
@@ -54,7 +54,7 @@ list 1
 53.	warranty (n): sự bảo hành
 54.	website (n): trang web
 55.	workshop (n): phân xưởng
-list 2
+* list 2
 1.	admission (n): sự nhận vào, sự thu nạp; sự thú nhận
 2.	airplane (n): máy bay
 3.	appliance (n): máy móc, thiết bị
@@ -110,7 +110,7 @@ list 2
 53.	upcoming (adj): sắp tới
 54.	upgrade (v): nâng cấp
 55.	valid (adj): đúng đắn, có cơ sở/căn cứ vững chắc
-list 3
+* list 3
 1.	aisle (n): lối đi hẹp
 2.	architect (n): kiến trúc sư
 3.	baggage (n): hành lý
@@ -166,7 +166,7 @@ list 3
 53.	unreal (adj): không thực tế
 54.	warehouse (n): nhà kho
 55.	workplace (n): chỗ làm, nơi làm việc
-list 4
+* list 4
 1.	accommodate (v): cung cấp một cái gì đó cần thiết
 2.	administrative (adj): thuộc về hành chính, quản lý văn phòng
 3.	advisor (n): cố vấn
@@ -222,7 +222,7 @@ list 4
 53.	venue (n): nơi sự kiện diễn ra
 54.	waitress (n): người phục vụ (nữ giới)
 55.	weekday (n): ngày thường
-list 5
+* list 5
 1.	affordable (adj): vừa túi tiền, có thể chi trả
 2.	annoy (v): làm phiền hoặc làm khó chịu
 3.	authority (n): thẩm quyền, uy quyền
@@ -278,7 +278,7 @@ list 5
 53.	unhappy (adj): không hạnh phúc, không vui
 54.	verify (v): xác nhận
 55.	worldwide (adv/adj): toàn cầu, khắp thế giới
-list 6
+* list 6
 1.	accurately (adv): một cách đúng đắn, chính xác
 2.	anniversary (n): ngày kỷ niệm
 3.	annually (adv): hàng năm, mỗi 12 tháng
@@ -334,7 +334,7 @@ list 6
 53.	urgent (adj): cấp thiết
 54.	utility (n): sự hữu ích
 55.	voucher (n): mã giảm giá
-list 7
+* list 7
 1.	administrator (n): người quản lý, người cầm quyền
 2.	auto (n): xe hơi
 3.	bench (n): ghế dài (thường thấy trong công viên)
@@ -390,7 +390,7 @@ list 7
 53.	vacancy (n): công việc hoặc vị trí còn bỏ trống
 54.	vegetarian (n): người ăn chay
 55.	wallet (n): ví, bao da
-list 8
+* list 8
 1.	accessible (adj): có sẵn, dễ dàng để tiếp cận
 2.	accomplishment (n): sự hoàn thành, thành tựu
 3.	accustom (v): làm quen với
@@ -446,7 +446,7 @@ list 8
 53.	windy (adj): có gió
 54.	wireless (n): thiết bị không dây
 55.	yearly (adv): hằng năm, mỗi năm
-list 9
+* list 9
 1.	actress (n): diễn viên nữ
 2.	adjacent (adj): bên cạnh, gần đó
 3.	alternate (n): lựa chọn thay thế, người thay thế
@@ -502,7 +502,7 @@ list 9
 53.	unfamiliar (adj): không quen, lạ lẫm
 54.	vendor (n): người bán hàng
 55.	withdrawal (n): sự thu hồi, sự rút khỏi
-list 10
+* list 10
 1.	accessory (n): đồng phạm
 2.	airfare (n): tiền máy bay, phí hàng không
 3.	alert (adj): tỉnh táo, cảnh giác
@@ -558,7 +558,7 @@ list 10
 53.	vacant (adj): trống không
 54.	vitamin (n): vitamin
 55.	zoo (n): sở thú
-list 11
+* list 11
 1.	absent (adj): mất tích, không có mặt
 2.	accumulate (v): tích lũy, gom góp
 3.	adhere (v): tuân theo, tuân thủ
@@ -614,7 +614,7 @@ list 11
 53.	visa (n): thị thực
 54.	wildlife (n): loài hoang dã
 55.	workforce (n): lực lượng lao động
-list 12
+* list 12
 1.	accordingly (adv): do đó, cho phù hợp
 2.	apple (n): quả táo
 3.	applicable (adj): liên quan đến/thích hợp
@@ -670,7 +670,7 @@ list 12
 53.	turnover (n): doanh số; doanh thu
 54.	unnecessary (adj): không cần thiết
 55.	vase (n): cái bình hoa
-list 13
+* list 13
 1.	aboard (adv, preposition): trên hoặc trong một phương tiện di chuyển, ví dụ: trên thuyền
 2.	acceptance (n): sự chấp nhận
 3.	advancement (n): sự tiến bộ, sự thăng tiến
@@ -726,7 +726,7 @@ list 13
 53.	unavailable (adj): không có sẵn
 54.	violation (n): sự vi phạm (luật,...)
 55.	webpage (n): trang web
-list 14
+* list 14
 1.	accent (n): giọng đặc trưng
 2.	advisory (adj): liên quan đến tư vấn, cố vấn
 3.	asleep (adj): ngủ, đang ngủ
@@ -782,7 +782,7 @@ list 14
 53.	ton (n): tấn (đơn vị đo)
 54.	vend (v): bán (hàng hóa)
 55.	yoga (n): yoga
-list 15
+* list 15
 1.	absorb (v): tiếp nhận, ngâm, thấm
 2.	administer (v): quản lý
 3.	ample (adj): quá đủ, quá nhiều, phong phú
@@ -838,7 +838,7 @@ list 15
 53.	toner (n): mực máy in
 54.	urgently (adv): một cách cấp thiết
 55.	walkway (n): đường dành cho người đi bộ
-list 16
+* list 16
 1.	amenity (n): cơ sở vật chất tiện nghi
 2.	approximate (v): xấp xỉ, gần đúng với
 3.	await (v): chờ đợi, hoặc mong đợi, một cái gì đó sẽ xảy ra
@@ -894,7 +894,7 @@ list 16
 53.	telecommunication (n): viễn thông
 54.	timely (adj): kịp thời
 55.	uncomfortable (adj): không thoải mái hoặc hài lòng với một tình huống hoặc điều gì đó
-list 17
+* list 17
 1.	amateur (n): người mới bắt đầu, dân nghiệp dư
 2.	ambassador (n): đại sứ, người đại diện (thường cho một quốc gia)
 3.	anew (adv): bắt đầu lại từ đầu, một lần nữa
@@ -951,7 +951,7 @@ list 17
 54.	vacate (v): để trống; di chuyển ra khỏi
 55.	whale (n): cá voi
 56.	wisely (adv): một cách khôn khéo
-list 18
+* list 18
 1.	activate (v): bắt đầu hoặc khởi động một cái gì đó
 2.	additionally (adv): ngoài ra, thêm vào đó
 3.	affirmative (adj): khẳng định, quả quyết
@@ -1007,7 +1007,7 @@ list 18
 53.	unused (adj): không sử dụng
 54.	waive (v): từ bỏ, khước từ
 55.	yen (n): đồng yên
-list 19
+* list 19
 1.	adapter (n): bộ chuyển đổi
 2.	advisable (adj): nên, thích hợp, đáng theo
 3.	archive (n): kho lưu trữ, nơi lưu trữ
@@ -1063,7 +1063,7 @@ list 19
 53.	violin (n): vĩ cầm
 54.	ward (n): phường, khu vực trong thành phố
 55.	worthwhile (adj): đáng giá
-list 20
+* list 20
 1.	compliance (n): hành động tuân theo các quy tắc
 2.	contraction (n): sự co lại, sự thu nhỏ lại
 3.	cookbook (n): một cuốn sách đưa ra hướng dẫn về cách chuẩn bị và nấu thức ăn
@@ -1119,7 +1119,7 @@ list 20
 53.	terrific (adj): tuyệt vời
 54.	underground (adv/adj): dưới lòng đất
 55.	unpaid (adj): không lương
-list 21
+* list 21
 1.	accuracy (n): sự chính xác
 2.	anyhow (adv): dù sao, bên cạnh đó
 3.	appetizer (n): món khai vị
@@ -1175,7 +1175,7 @@ list 21
 53.	whoever (pronoun): bất cứ ai
 54.	wool (n): lông cừu
 55.	wrinkle (n): nếp nhăn, nếp gấp
-list 22
+* list 22
 1.	abide (v): chịu đựng
 2.	actively (adv): một cách tích cực, làm theo cách yêu cầu nỗ lực và hành động
 3.	allergy (n): dị ứng
@@ -1231,7 +1231,7 @@ list 22
 53.	vanilla (n): hương vị vani
 54.	willingness (n): sự sẵn lòng
 55.	wristwatch (n): đồng hồ đeo tay
-list 23
+* list 23
 1.	acclaim (n): sự chấp thuận và khen ngợi
 2.	bookcase (n): tủ sách, kệ sách
 3.	cheer (v): cổ vũ, hoan hô
@@ -1279,7 +1279,8 @@ list 23
 45.	violate (v): vi phạm quy tắc hoặc luật pháp
 46.	wellness (n): trạng thái khỏe mạnh; không bị bệnh
 47.	workbook (n): sách bài tập
-test 1 – part 5
+ 
+* test 1 – part 5
 1.	lecture (n): bài giảng
 2.	guest lecture (n): bài giảng của khách mời
 3.	lecture hall (n): giảng đường
