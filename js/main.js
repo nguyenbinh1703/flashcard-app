@@ -24,12 +24,13 @@ function showScreen(screenId) {
     else header.classList.remove('zen-mode');
 }
 
-// 1. Khóa Menu Chuột phải (Ngăn mở Inspect)
+// ==========================================
+// 1. BẢO MẬT: KHÓA CHUỘT PHẢI & PHÍM TẮT DEV
+// ==========================================
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
 });
 
-// 2. Khóa các tổ hợp phím F12, Ctrl+U, Ctrl+Shift+I, Ctrl+S
 document.addEventListener('keydown', function(event) {
     if (
         event.keyCode === 123 || // Khóa F12
@@ -43,6 +44,9 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// ==========================================
+// LOGIC XỬ LÝ DỮ LIỆU & GIAO DIỆN
+// ==========================================
 window.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch('./vocabulary.txt');
@@ -118,7 +122,6 @@ function updateProgress() {
     document.getElementById('stats-text').innerText = `Còn ${remaining - 1} từ`;
 }
 
-// Thuật toán bóp cỡ chữ chống Scroll
 function autoScaleText() {
     const regions = [
         { container: document.querySelector('.card-front-section'), text: document.getElementById('flash-word-front') },
@@ -136,7 +139,6 @@ function autoScaleText() {
 }
 window.addEventListener('resize', () => { if(currentWordObj) autoScaleText(); });
 
-// Hàm nạp dữ liệu từ mới vào UI (Trả về true nếu còn từ, false nếu hết)
 function showNextWordData() {
     if (currentLevelPool.length === 0) {
         showScreen('end-screen');
@@ -169,55 +171,44 @@ function startLevel(listName) {
     shuffleArray(currentLevelPool);
     showScreen('play-screen');
     
-    // Ép thẻ về mặt trước mà không có animation
     cardInner.style.transition = 'none';
     cardInner.classList.remove('is-flipped');
     isCardFlipped = false;
     
     showNextWordData();
     
-    // Phục hồi hiệu ứng lật 3D, NHƯNG KHÔNG gọi hiệu ứng bay (tránh lag từ đầu tiên)
     requestAnimationFrame(() => {
         cardInner.style.transition = ''; 
     });
 }
 
-// HÀM ĐIỀU PHỐI ANIMATION KHI ĐỔI TỪ
 function animateAndNext() {
-    // Ngăn chặn bấm liên tục
     document.getElementById('btn-note').style.pointerEvents = 'none';
     document.getElementById('btn-done').style.pointerEvents = 'none';
 
-    // 1. Quăng thẻ cũ đi (Fly out)
     cardScene.classList.remove('animate-fly-in');
     cardScene.classList.add('animate-fly-out');
     
-    // Đợi 350ms cho thẻ bay hẳn ra khỏi màn hình
     setTimeout(() => {
-        // 2. Trong lúc tàng hình, reset thẻ về mặt trước (Không animation)
         cardInner.style.transition = 'none'; 
         cardInner.classList.remove('is-flipped');
         isCardFlipped = false;
         
-        // 3. Nạp dữ liệu từ mới
         const hasNext = showNextWordData();
         
         if (hasNext) {
-            // 4. Nếu còn từ, bay thẻ mới vào (Fly in)
             requestAnimationFrame(() => {
-                cardInner.style.transition = ''; // Bật lại 3D Flip
+                cardInner.style.transition = ''; 
                 cardScene.classList.remove('animate-fly-out');
                 cardScene.classList.add('animate-fly-in');
                 
                 setTimeout(() => {
                     cardScene.classList.remove('animate-fly-in');
-                    // Khôi phục nút bấm
                     document.getElementById('btn-note').style.pointerEvents = 'auto';
                     document.getElementById('btn-done').style.pointerEvents = 'auto';
                 }, 400);
             });
         } else {
-            // Nếu hết từ, dọn dẹp
             cardScene.classList.remove('animate-fly-out');
             cardInner.style.transition = '';
             document.getElementById('btn-note').style.pointerEvents = 'auto';
@@ -271,22 +262,28 @@ document.querySelectorAll('.btn-uk').forEach(btn => {
     btn.addEventListener('click', (e) => { e.stopPropagation(); playAudio('en-GB'); });
 });
 
+// ==========================================
+// 2. CẬP NHẬT PHÍM TẮT (K & Enter)
+// ==========================================
 document.addEventListener('keydown', (e) => {
     if (document.getElementById('play-screen').classList.contains('active')) {
-        if (e.code === 'Space') { e.preventDefault(); if (!isCardFlipped) flipCard(); } 
+        // Space hoặc Enter để lật thẻ
+        if (e.code === 'Space' || e.code === 'Enter') { 
+            e.preventDefault(); 
+            if (!isCardFlipped) flipCard(); 
+        } 
         else if (e.code === 'ArrowRight' && isCardFlipped) { markDone(); } 
         else if (e.code === 'ArrowLeft' && isCardFlipped) { markNote(); } 
         else if (e.code === 'KeyS') { playAudio('en-US'); }
-        else if (e.code === 'KeyD') { playAudio('en-GB'); }
+        // Cập nhật: Phím K thay cho phím D để phát âm UK
+        else if (e.code === 'KeyK') { playAudio('en-GB'); }
     }
 });
 
 // Xử lý sự kiện nút Back
 document.getElementById('btn-back').addEventListener('click', () => {
-    // Tắt âm thanh nếu nó đang đọc dở dang
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
     }
-    // Trở về màn hình chọn bài
     showScreen('level-screen');
 });
