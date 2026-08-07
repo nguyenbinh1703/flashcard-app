@@ -1279,7 +1279,6 @@
 45.	violate (v): vi phạm quy tắc hoặc luật pháp
 46.	wellness (n): trạng thái khỏe mạnh; không bị bệnh
 47.	workbook (n): sách bài tập
- 
 * test 1 – part 5
 1.	lecture (n): bài giảng
 2.	guest lecture (n): bài giảng của khách mời
@@ -1462,7 +1461,7 @@
 179.	energetically (adv): đầy năng lượng
 180.	solicit (v): yêu cầu, xin
 181.	request (v): yêu cầu
-182.	campaign (n) chiến dịch
+182.	campaign (n): chiến dịch
 183.	endeavor: nổ lực
 184.	engage (v): thuê/thu hút
 185.	undergo (v): trải qua
