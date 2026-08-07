@@ -1,4 +1,4 @@
-List 1
+list 1
 1.	accountant (n): kế toán, người chịu trách nhiệm về tiền trong một doanh nghiệp
 2.	airport (n): sân bay
 3.	applicant (n): ứng viên
@@ -54,7 +54,7 @@ List 1
 53.	warranty (n): sự bảo hành
 54.	website (n): trang web
 55.	workshop (n): phân xưởng
-List 2
+list 2
 1.	admission (n): sự nhận vào, sự thu nạp; sự thú nhận
 2.	airplane (n): máy bay
 3.	appliance (n): máy móc, thiết bị
@@ -83,7 +83,7 @@ List 2
 26.	identification (n): giấy tờ nhận dạng
 27.	inference (n): kết luận, sự suy luận
 28.	instructor (n): người hướng dẫn (có thể là huấn luyện viên, giáo viên)
-29.	inventory (n): bản kiểm kê
+29.	inventory (n): bản kiểm kê, hàng tồn kho
 30.	keyboard (n): bàn phím máy tính
 31.	laptop (n): máy tính xách tay
 32.	mall (n): trung tâm thương mại, trung tâm mua sắm
@@ -110,7 +110,7 @@ List 2
 53.	upcoming (adj): sắp tới
 54.	upgrade (v): nâng cấp
 55.	valid (adj): đúng đắn, có cơ sở/căn cứ vững chắc
-List 3
+list 3
 1.	aisle (n): lối đi hẹp
 2.	architect (n): kiến trúc sư
 3.	baggage (n): hành lý
@@ -166,7 +166,7 @@ List 3
 53.	unreal (adj): không thực tế
 54.	warehouse (n): nhà kho
 55.	workplace (n): chỗ làm, nơi làm việc
-List 4
+list 4
 1.	accommodate (v): cung cấp một cái gì đó cần thiết
 2.	administrative (adj): thuộc về hành chính, quản lý văn phòng
 3.	advisor (n): cố vấn
@@ -222,7 +222,7 @@ List 4
 53.	venue (n): nơi sự kiện diễn ra
 54.	waitress (n): người phục vụ (nữ giới)
 55.	weekday (n): ngày thường
-List 5
+list 5
 1.	affordable (adj): vừa túi tiền, có thể chi trả
 2.	annoy (v): làm phiền hoặc làm khó chịu
 3.	authority (n): thẩm quyền, uy quyền
@@ -278,7 +278,7 @@ List 5
 53.	unhappy (adj): không hạnh phúc, không vui
 54.	verify (v): xác nhận
 55.	worldwide (adv/adj): toàn cầu, khắp thế giới
-List 6
+list 6
 1.	accurately (adv): một cách đúng đắn, chính xác
 2.	anniversary (n): ngày kỷ niệm
 3.	annually (adv): hàng năm, mỗi 12 tháng
@@ -314,7 +314,7 @@ List 6
 33.	optional (adj): tùy ý, không bắt buộc
 34.	paycheck (n): tiền lương
 35.	pet (n): vật nuôi
-36.	photography (n): Nghệ thuật chụp ảnh
+36.	photography (n): nghệ thuật chụp ảnh
 37.	polite (adj): lịch sự
 38.	proficiency (n): sự thông thạo
 39.	protective (adj): phòng ngừa, bảo hộ
@@ -334,7 +334,7 @@ List 6
 53.	urgent (adj): cấp thiết
 54.	utility (n): sự hữu ích
 55.	voucher (n): mã giảm giá
-List 7
+list 7
 1.	administrator (n): người quản lý, người cầm quyền
 2.	auto (n): xe hơi
 3.	bench (n): ghế dài (thường thấy trong công viên)
@@ -348,7 +348,7 @@ List 7
 11.	confidential (adj): bảo mật
 12.	cumulative (adj): tích lũy
 13.	decorate (v): trang trí, trang hoàng
-14.	deduction (n): Sự lấy đi, sự khấu trừ
+14.	deduction (n): sự lấy đi, sự khấu trừ
 15.	definite (adj): chắc chắn, chính xác
 16.	directory (n): danh bạ, thư mục
 17.	disposal (n): sự vứt bỏ đi
@@ -390,7 +390,7 @@ List 7
 53.	vacancy (n): công việc hoặc vị trí còn bỏ trống
 54.	vegetarian (n): người ăn chay
 55.	wallet (n): ví, bao da
-List 8
+list 8
 1.	accessible (adj): có sẵn, dễ dàng để tiếp cận
 2.	accomplishment (n): sự hoàn thành, thành tựu
 3.	accustom (v): làm quen với
@@ -446,7 +446,7 @@ List 8
 53.	windy (adj): có gió
 54.	wireless (n): thiết bị không dây
 55.	yearly (adv): hằng năm, mỗi năm
-List 9
+list 9
 1.	actress (n): diễn viên nữ
 2.	adjacent (adj): bên cạnh, gần đó
 3.	alternate (n): lựa chọn thay thế, người thay thế
@@ -502,7 +502,7 @@ List 9
 53.	unfamiliar (adj): không quen, lạ lẫm
 54.	vendor (n): người bán hàng
 55.	withdrawal (n): sự thu hồi, sự rút khỏi
-List 10
+list 10
 1.	accessory (n): đồng phạm
 2.	airfare (n): tiền máy bay, phí hàng không
 3.	alert (adj): tỉnh táo, cảnh giác
@@ -558,7 +558,7 @@ List 10
 53.	vacant (adj): trống không
 54.	vitamin (n): vitamin
 55.	zoo (n): sở thú
-List 11
+list 11
 1.	absent (adj): mất tích, không có mặt
 2.	accumulate (v): tích lũy, gom góp
 3.	adhere (v): tuân theo, tuân thủ
@@ -572,7 +572,7 @@ List 11
 11.	colorful (adj): có nhiều màu sắc khác nhau, sặc sỡ
 12.	compensate (v): trả tiền, trả thù lao
 13.	comply (v): tuân theo, làm theo
-14.	costume (n): trang phục (thường cho những dịp đặc biệt như Halloween)
+14.	costume (n): trang phục (thường cho những dịp đặc biệt như halloween)
 15.	diner (n): quán ăn rẻ tiền
 16.	duplicate (v): nhân bản, sao chép
 17.	eager (adj): hăng hái, háo hức
@@ -614,7 +614,7 @@ List 11
 53.	visa (n): thị thực
 54.	wildlife (n): loài hoang dã
 55.	workforce (n): lực lượng lao động
-List 12
+list 12
 1.	accordingly (adv): do đó, cho phù hợp
 2.	apple (n): quả táo
 3.	applicable (adj): liên quan đến/thích hợp
@@ -665,13 +665,13 @@ List 12
 48.	separately (adv): một cách riêng biệt
 49.	sock (n): tất
 50.	spam (n): thư rác
-51.	surf (v): lướt Web
+51.	surf (v): lướt web
 52.	timetable (n): kế hoạch, thời gian biểu
 53.	turnover (n): doanh số; doanh thu
 54.	unnecessary (adj): không cần thiết
 55.	vase (n): cái bình hoa
-List 13
-1.	aboard (adv, preposition): trên hoặc trong một phương tiện di chuyển, ví dụ: Trên thuyền
+list 13
+1.	aboard (adv, preposition): trên hoặc trong một phương tiện di chuyển, ví dụ: trên thuyền
 2.	acceptance (n): sự chấp nhận
 3.	advancement (n): sự tiến bộ, sự thăng tiến
 4.	advertiser (n): nhà quảng cáo
@@ -726,7 +726,7 @@ List 13
 53.	unavailable (adj): không có sẵn
 54.	violation (n): sự vi phạm (luật,...)
 55.	webpage (n): trang web
-List 14
+list 14
 1.	accent (n): giọng đặc trưng
 2.	advisory (adj): liên quan đến tư vấn, cố vấn
 3.	asleep (adj): ngủ, đang ngủ
@@ -750,14 +750,14 @@ List 14
 21.	firework (n): pháo hoa
 22.	freight (n): hàng hoá chuyên chở
 23.	fry (v): chiên rán
-24.	gallon (n): Galông (đơn vị đo lường chất lỏng bằng 3, 78 lít ở Mỹ)
+24.	gallon (n): galông (đơn vị đo lường chất lỏng bằng 3, 78 lít ở mỹ)
 25.	gardener (n): người làm vườn
 26.	ideally (adv): trong lý tưởng, một cách lý tưởng
-27.	inclusive (adj): Bao gồm tất cả mọi thứ
+27.	inclusive (adj): bao gồm tất cả mọi thứ
 28.	insufficient (adj): không đủ
 29.	introductory (adj): để giới thiệu, mở đầu
 30.	junk (n): vật phẩm vô dụng; rác
-31.	ma'am (n): Thưa bà *đây là từ viết tắt của 'madam' - phu nhân, đây là một cách lịch sự để gọi/xưng hộ với một người phụ nữ
+31.	ma'am (n): thưa bà *đây là từ viết tắt của 'madam' - phu nhân, đây là một cách lịch sự để gọi/xưng hộ với một người phụ nữ
 32.	mileage (n): tổng số dặm đã đi được
 33.	noisy (adj): ồn ào
 34.	pan (n): cái chảo
@@ -778,11 +778,11 @@ List 14
 49.	spill (v): làm đổ
 50.	spouse (n): chồng; vợ
 51.	subtract (v): trừ đi, lấy đi
-52.	tablet (n): Tấm, bản, thẻ, phiến
+52.	tablet (n): tấm, bản, thẻ, phiến
 53.	ton (n): tấn (đơn vị đo)
 54.	vend (v): bán (hàng hóa)
 55.	yoga (n): yoga
-List 15
+list 15
 1.	absorb (v): tiếp nhận, ngâm, thấm
 2.	administer (v): quản lý
 3.	ample (adj): quá đủ, quá nhiều, phong phú
@@ -838,7 +838,7 @@ List 15
 53.	toner (n): mực máy in
 54.	urgently (adv): một cách cấp thiết
 55.	walkway (n): đường dành cho người đi bộ
-List 16
+list 16
 1.	amenity (n): cơ sở vật chất tiện nghi
 2.	approximate (v): xấp xỉ, gần đúng với
 3.	await (v): chờ đợi, hoặc mong đợi, một cái gì đó sẽ xảy ra
@@ -894,7 +894,7 @@ List 16
 53.	telecommunication (n): viễn thông
 54.	timely (adj): kịp thời
 55.	uncomfortable (adj): không thoải mái hoặc hài lòng với một tình huống hoặc điều gì đó
-List 17
+list 17
 1.	amateur (n): người mới bắt đầu, dân nghiệp dư
 2.	ambassador (n): đại sứ, người đại diện (thường cho một quốc gia)
 3.	anew (adv): bắt đầu lại từ đầu, một lần nữa
@@ -914,7 +914,7 @@ List 17
 17.	delicate (adj): mỏng manh, dễ tổn thương
 18.	dependence (n): sự phụ thuộc
 19.	distraction (n): sự làm xao lãng
-20.	downsize (v): Giảm kích thước hoặc số
+20.	downsize (v): giảm kích thước hoặc số
 21.	elephant (n): con voi
 22.	enthusiasm (n): sự hăng hái, sự nhiệt tình
 23.	enthusiast (n): người đam mê về điều gì đó
@@ -932,25 +932,26 @@ List 17
 35.	inflate (v): thổi phồng, bơm phồng
 36.	insert (v): chèn vào, thêm vào
 37.	lecturer (n): người hướng dẫn hoặc giảng viên đại học
-38.	meaningful (adj): có ý nghĩa hoặc mục đích
-39.	memorize (v): ghi nhớ
-40.	merchant (n): thương gia
-41.	modification (n): sự điều chỉnh
-42.	occupant (n): người cư trú, người sử dụng
-43.	reproduce (v): sao chép lại, mô phỏng
-44.	spray (v): xịt, phun
-45.	staple (n): kim bấm
-46.	strategic (adj): thuộc về chiến lược
-47.	stripe (n): vạch sọc
-48.	teen (n): tuổi teen (độ tuổi nằm trong khoản 13 - 19 tuổi)
-49.	tempt (v): xúi giục
-50.	timer (n): thiết bị bấm giờ
-51.	unload (v): dỡ hàng
-52.	unusually (adv): không bình thường
-53.	vacate (v): để trống; di chuyển ra khỏi
-54.	whale (n): cá voi
-55.	wisely (adv): một cách khôn khéo
-List 18
+38.	lecture (n): bài giảng
+39.	meaningful (adj): có ý nghĩa hoặc mục đích
+40.	memorize (v): ghi nhớ
+41.	merchant (n): thương gia
+42.	modification (n): sự điều chỉnh
+43.	occupant (n): người cư trú, người sử dụng
+44.	reproduce (v): sao chép lại, mô phỏng
+45.	spray (v): xịt, phun
+46.	staple (n): kim bấm
+47.	strategic (adj): thuộc về chiến lược
+48.	stripe (n): vạch sọc
+49.	teen (n): tuổi teen (độ tuổi nằm trong khoản 13 - 19 tuổi)
+50.	tempt (v): xúi giục
+51.	timer (n): thiết bị bấm giờ
+52.	unload (v): dỡ hàng
+53.	unusually (adv): không bình thường
+54.	vacate (v): để trống; di chuyển ra khỏi
+55.	whale (n): cá voi
+56.	wisely (adv): một cách khôn khéo
+list 18
 1.	activate (v): bắt đầu hoặc khởi động một cái gì đó
 2.	additionally (adv): ngoài ra, thêm vào đó
 3.	affirmative (adj): khẳng định, quả quyết
@@ -1005,10 +1006,10 @@ List 18
 52.	transmit (v): truyền, phát (một tín hiệu, chương trình..)
 53.	unused (adj): không sử dụng
 54.	waive (v): từ bỏ, khước từ
-55.	yen (n): đồng Yên
-List 19
+55.	yen (n): đồng yên
+list 19
 1.	adapter (n): bộ chuyển đổi
-2.	advisable (adj): Nên, thích hợp, đáng theo
+2.	advisable (adj): nên, thích hợp, đáng theo
 3.	archive (n): kho lưu trữ, nơi lưu trữ
 4.	artistic (adj): sáng tạo, giỏi nghệ thuật
 5.	assurance (n): sự chắc chắn, sự đảm bảo
@@ -1042,7 +1043,7 @@ List 19
 33.	outfit (n): một bộ trang phục, một set đồ
 34.	pastry (n): bánh ngọt, bánh có nhân
 35.	personalize (v): cá nhân hóa
-36.	poorly (adv): Tệ; không đủ
+36.	poorly (adv): tệ; không đủ
 37.	prestigious (adj): có uy tín
 38.	purser (n): người quản lý (trên tàu thuỷ chở khách)
 39.	reassure (v): cam đoan, bảo đảm
@@ -1052,17 +1053,17 @@ List 19
 43.	seafood (n): hải sản
 44.	signify (v): biểu thị
 45.	slot (n): cái khe
-46.	steer (v): Lái (tàu thuỷ, ô tô..)
+46.	steer (v): lái (tàu thuỷ, ô tô..)
 47.	sue (v): kiện
 48.	superb (adj): rất tốt
 49.	traditionally (adv): theo truyền thống
 50.	tremendous (adj): phi thường hoặc xuất sắc
-51.	underway (adv/adj): Đang xảy ra
-52.	unpleasant (adj): Không đẹp, không thoải mái
+51.	underway (adv/adj): đang xảy ra
+52.	unpleasant (adj): không đẹp, không thoải mái
 53.	violin (n): vĩ cầm
 54.	ward (n): phường, khu vực trong thành phố
 55.	worthwhile (adj): đáng giá
-List 20
+list 20
 1.	compliance (n): hành động tuân theo các quy tắc
 2.	contraction (n): sự co lại, sự thu nhỏ lại
 3.	cookbook (n): một cuốn sách đưa ra hướng dẫn về cách chuẩn bị và nấu thức ăn
@@ -1118,17 +1119,17 @@ List 20
 53.	terrific (adj): tuyệt vời
 54.	underground (adv/adj): dưới lòng đất
 55.	unpaid (adj): không lương
-List 21
+list 21
 1.	accuracy (n): sự chính xác
-2.	anyhow (adv): Dù sao, bên cạnh đó
+2.	anyhow (adv): dù sao, bên cạnh đó
 3.	appetizer (n): món khai vị
 4.	arc (n): một đường cong, giống như một phần của vòng tròn, hình cung
 5.	audition (n): cuộc thử giọng, cuộc diễn thử
 6.	backpack (n): ba lô
 7.	ballroom (n): phòng khiêu vũ
-8.	beneficial (adj): Tốt cho bạn, có lợi
+8.	beneficial (adj): tốt cho bạn, có lợi
 9.	biography (n): tiểu sử, lý lịch
-10.	bound (v): Bao quanh với một cái gì đó, để che chắn hoặc khoanh kín
+10.	bound (v): bao quanh với một cái gì đó, để che chắn hoặc khoanh kín
 11.	broom (n): cây chổi quét
 12.	cheeseburger (n): một chiếc bánh hamburger với phô mai tan chảy trên đó
 13.	chilly (adj): se lạnh
@@ -1153,15 +1154,15 @@ List 21
 32.	elevate (v): nâng cao
 33.	engagement (n): sự tham gia
 34.	enrollment (n): sự kết nạp, sự ghi danh
-35.	euro (n): một đơn vị tiền được sử dụng ở một số quốc gia châu Âu
+35.	euro (n): một đơn vị tiền được sử dụng ở một số quốc gia châu âu
 36.	forbid (v): ngăn cấm
 37.	fork (n): cái nĩa
 38.	foster (v): khuyến khích, cổ vũ
 39.	getaway (n): sự chạy trốn, sự trốn thoát
 40.	gossip (v): ngồi lê đôi mách, bàn tán sau lưng
-41.	hacker (n): Người lấy dữ liệu máy tính mà không được phép, tin tặc
+41.	hacker (n): người lấy dữ liệu máy tính mà không được phép, tin tặc
 42.	hardworking (adj): làm việc chăm chỉ
-43.	impatient (adj): Thiếu kiên nhẫn, nóng vội
+43.	impatient (adj): thiếu kiên nhẫn, nóng vội
 44.	indirect (adj): gián tiếp
 45.	interpreter (n): người phiên dịch/phiên dịch viên
 46.	intersection (n): ngã tư đường
@@ -1174,15 +1175,15 @@ List 21
 53.	whoever (pronoun): bất cứ ai
 54.	wool (n): lông cừu
 55.	wrinkle (n): nếp nhăn, nếp gấp
-List 22
+list 22
 1.	abide (v): chịu đựng
 2.	actively (adv): một cách tích cực, làm theo cách yêu cầu nỗ lực và hành động
 3.	allergy (n): dị ứng
-4.	apprehensive (adj): Không thoải mái, lo lắng
+4.	apprehensive (adj): không thoải mái, lo lắng
 5.	automotive (adj): của hoặc liên quan đến xe cơ giới
 6.	bacteria (n): vi khuẩn
 7.	broaden (v): mở rộng
-8.	bulb (n): Hình dạng của một giọt nước mắt, ví dụ: bóng đèn
+8.	bulb (n): hình dạng của một giọt nước mắt, ví dụ: bóng đèn
 9.	by-law (n): một quy tắc được đưa ra bởi một công ty hoặc xã hội để kiểm soát các hành động của các thành viên.
 10.	lifeguard (n): người cứu hộ
 11.	modem (n): môđem - một loại thiết bị ngoại vi của máy tính
@@ -1195,7 +1196,7 @@ List 22
 18.	outage (n): sự ngừng chạy (máy; vì thiếu điện, thiếu chất đốt)
 19.	overcrowd (v): dồn vào, kéo vào quá đông
 20.	paralegal (n): trợ lý của luật sư
-21.	partially (adv): Một phần; ở một mức độ nào đó; không hoàn toàn
+21.	partially (adv): một phần; ở một mức độ nào đó; không hoàn toàn
 22.	pepper (n): hạt tiêu
 23.	permanently (adv): vĩnh viễn
 24.	plow (v): buộc bạn phải vượt qua một trở ngại nào đó
@@ -1209,7 +1210,7 @@ List 22
 32.	repetition (n): sự nhắc lại, sự lặp lại
 33.	retreat (v): rút lui, lùi về
 34.	salon (n): thẩm mỹ viện
-35.	satellite office (n): Một chi nhánh khác của một văn phòng
+35.	satellite office (n): một chi nhánh khác của một văn phòng
 36.	scenery (n): phong cảnh
 37.	serial (adj): liên tục, nối tiếp
 38.	sew (v): may vá
@@ -1225,13 +1226,13 @@ List 22
 48.	trademark (n): nhãn hiệu
 49.	tropical (adj): nhiệt đới
 50.	tuna (n): cá ngừ
-51.	unemployed (adj): Không có việc làm
+51.	unemployed (adj): không có việc làm
 52.	validate (v): công nhận có giá trị, làm cho lôgich, làm cho hợp lý
 53.	vanilla (n): hương vị vani
 54.	willingness (n): sự sẵn lòng
 55.	wristwatch (n): đồng hồ đeo tay
-List 23
-1.	acclaim (n): Sự chấp thuận và khen ngợi
+list 23
+1.	acclaim (n): sự chấp thuận và khen ngợi
 2.	bookcase (n): tủ sách, kệ sách
 3.	cheer (v): cổ vũ, hoan hô
 4.	chronic (adj): trong một khoảng thời gian dài
@@ -1273,8 +1274,210 @@ List 23
 40.	timeline (n): một chuỗi các sự kiện theo dòng thời gian
 41.	unauthorized (adj): không có thẩm quyền, không được cho phép
 42.	unplug (v): rút dây điện ra khỏi ổ cắm của nó
-43.	unreliable (adj): Không đáng tin cậy
+43.	unreliable (adj): không đáng tin cậy
 44.	video conference (n): cuộc họp được thực hiện qua internet
 45.	violate (v): vi phạm quy tắc hoặc luật pháp
-46.	wellness (n): Trạng thái khỏe mạnh; không bị bệnh
+46.	wellness (n): trạng thái khỏe mạnh; không bị bệnh
 47.	workbook (n): sách bài tập
+ 
+test 1 – part 5
+1.	lecture (n): bài giảng
+2.	guest lecture (n): bài giảng của khách mời
+3.	lecture hall (n): giảng đường
+4.	attendee (n): người tham gia, người tham dự
+5.	participant (n): người tham gia
+6.	across (prep): băng qua
+7.	after (prep): sau khi
+8.	inside (prep): bên trong
+9.	among (prep): trong số
+10.	after which: sau đó, dùng để chỉ một sự việc xảy ra sau mốc thời gian hoặc sự kiện vừa được nhắc tới
+11.	take place (phrasal verb): diễn ra
+12.	last (adj - v): cuối cùng – kéo dài
+13.	the last: lần cuối cùng
+14.	lasting (adj): bền vững
+15.	antique (adj): cổ xưa
+16.	antique shop (n): cửa hàng đồ cổ
+17.	antique dealer (n): người buôn đồ cổ
+18.	vintage (adj): cổ điển
+19.	update (n): sự cập nhật
+20.	status update: bản cập nhật tình hình/trạng thái
+21.	change (n): sự thay đổi
+22.	payment (n): sự thanh toán
+23.	request (n): lời yêu cầu
+24.	resident (n): cư dân
+25.	local resident (n): cư dân địa phương
+26.	city resident  (n): cư dân thành phố
+27.	inhabitant (n): người ở
+28.	ongoing (adj): đang diễn ra
+29.	effort(n): sự nổ lực
+30.	construction (n): việc xây dựng
+31.	road construction: xây dựng đường
+32.	housing construction: xây dựng nhà ở
+33.	receive (v): nhận được
+34.	bridge (n): cây cầu
+35.	project (n): dự án
+36.	lead (v): dẫn dắt, lãnh đạo
+37.	discussion: cuộc thảo luận
+38.	manage (v): quản lý, điều hành
+39.	media (n): truyền thông
+40.	social (adj): xã hội
+41.	mass media: truyền thông đại chúng
+42.	press (n): báo chí
+43.	organization (n): tổ chức, chỉ một nhóm người cùng chung mục đích
+44.	international (adj): quốc tế
+45.	non-profit: phi lợi nhuận
+46.	select (v): chọn
+47.	select randomly: chọn ngẫu nhiên
+48.	select a candidate: chọn một ứng viên
+49.	choose (v): chọn, lựa chọn
+50.	break (n): sự gãy/ngắt
+51.	spread (n): sự lây lan/lan rộng
+52.	disease spread: sự lây lan dịch bệnh
+53.	prevent spread: ngăn chặn sự lây lan
+54.	diffusion (n): sự khuếch tán, sự truyền bá, sự phổ biến
+55.	balance (n): sự cân bằng
+56.	surface (n): bề mặt
+57.	stop the spread of computer viruses: ngăn chặn virút máy tính lây lan
+58.	suspicious (adj): đáng ngờ, khả nghi
+59.	activity (n): hoạt động
+60.	behavior (n): hành vi
+61.	dubious (adj): nghi ngờ
+62.	caring (adj): chu đáo
+63.	careful (adj): cẩn thận
+64.	carefulness (n): sự cẩn thận
+65.	carefully consider: cân nhắc cẩn thận, xem xét cẩn thận
+66.	carefully examine: kiểm tra cẩn thận
+67.	cautiously (adv): thận trọng
+68.	applicant (n): ứng viên
+69.	job applicant: ứng viên xin việc
+70.	qualified applicant: ứng viên đủ điều kiện, ứng viên đủ năng lực
+71.	qualification (n): năng lực, phẩm chất, bằng cấp
+72.	professional qualifications: bằng cấp chuyên môn
+73.	academic qualifications: bằng cấp học thuật
+74.	credentials (n): chứng chỉ
+75.	in addition (adv): ngoài ra
+76.	prior to (prep): trước khi
+77.	oversee (v): giám sát
+78.	operation: sự vận hành, sự hoạt động
+79.	supervise (v): giám sát
+80.	branch (n): chi nhánh, nhánh
+81.	local (adj): địa phương
+82.	office (n): văn phòng
+83.	to line (v): xếp hàng
+84.	lining (n): lớp lót
+85.	lined (v-ed): được kẻ hàng
+86.	line (n): dòng/hàng
+87.	product line (n): dòng sản phẩm
+88.	vary (v): thay đổi, đa dạng hoá
+89.	vary widely: thay đổi rộng rãi
+90.	vary greatly: thay đổi đáng kể
+91.	medicine (n): thuốc
+92.	pharmaceutical industry: ngành công nghiệp dược phẩm
+93.	pharmaceutical product: sản phẩm dược phẩm
+94.	over-the-counter (adj): không cần kê đơn (thuốc)
+95.	over-the-counter medicines (n-s): thuốc không kê đơn
+96.	over-the-counter drug: thuốc không kê đơn
+97.	over-the-counter sale: bán không kê đơn
+98.	non-prescription: không kê đơn
+99.	seeks (v-s): tìm kiếm
+100.	seeker (n): người tìm kiếm
+101.	continuously (adv): liên tục
+102.	improve: cải thiện
+103.	operate: vận hành
+104.	constantly (adv): liên tục
+105.	seek advice: tìm lời khuyên
+106.	seek opportunities : tìm kiếm cơ hội
+107.	search for: tìm kiếm
+108.	reduce costs: giảm chi phí
+109.	reduce waste: giảm thiếu rác thải
+110.	decrease (v-n): giảm – sự giảm
+111.	calculate (v): tính toán
+112.	calculator (n): máy tính
+113.	cash registers (n): máy tính tiền
+114.	calculate the total cost: tính tổng chi phí
+115.	calculate expenses: tính toán chi phí
+116.	calculate accurately: tính toán chính xác
+117.	compute (v): tính toán
+118.	inventory (n): hàng tồn kho
+119.	manage inventory: quản lý tồn kho
+120.	inventory count: kiểm kê hàng tồn kho
+121.	stock (n): văn hoá
+122.	available (adj): có sẵn
+123.	available for purchase: có sẵn để mua
+124.	available to staff: có sẵn cho nhân viên
+125.	accessible (adj): có thể truy cập, dễ tiếp cận
+126.	infinitely (adv): vô tận
+127.	sincerely (adv): chân thành
+128.	precisely (adv): một cách chính xác
+129.	greatly (adv): rất nhiều
+130.	precisely timed: được tính giờ chính xác
+131.	precisely measured: được đo lường chính xác
+132.	precisely locate: xác định vị trí chính xác
+133.	accurately (adv): một cách chính xác
+134.	find (v): tìm kiếm
+135.	underground (adj): dưới lòng đất
+136.	underground railway: tuyến đường sắt ngầm
+137.	underground cables: cáp ngầm
+138.	subterranean (adj): dưới mặt đất
+139.	mineral (n): khoáng sản
+140.	natural mineral: khoáng sản tự nhiên
+141.	mineral resources: tài nguyên khoáng sản
+142.	ore (n): quặng, khoáng thạch
+143.	finance (n – v): tài chính – cấp vốn
+144.	financials (n): báo cáo tài chính
+145.	financially (adv): về mặt tài chính
+146.	financing (n): sự cấp vốn
+147.	financially responsible: có trách nhiệm về mặt tài chính
+148.	financially stable: ổn định về mặt tài chính
+149.	financially viable: khả thi về tài chính
+150.	financially sound: vững mạnh về tài chính
+151.	monetarily: về mặt tiền bạc
+152.	responsible (adj): chịu trách nhiệm
+153.	responsible for: chịu trách nhiệm về
+154.	expand (v): mở rộng
+155.	expand business: mở rộng kinh doanh
+156.	expand operations: mở rộng hoạt động
+157.	enlarge (v): mở rộng, phóng to
+158.	warehouse (n): nhà kho
+159.	distribution warehouse: kho phân phối
+160.	depot (n): kho hàng
+161.	certainty (n): sự chắc chắn
+162.	justice (n): sự công bằng
+163.	excellence (n): sự xuất sắc
+164.	denial (n): sự phủ nhận
+165.	say with any certainty: nói với bất kỳ sự chắc chắn nào, nói chắc chắn rằng
+166.	with certainty: một cách chắc chắn
+167.	absolute certainty: sự chắc chắn tuyệt đối
+168.	assurance (n): sự đảm bảo
+169.	analyst (n): nhà phân tích
+170.	market analyst: nhà phân tích thị trường
+171.	investigator (n): nhà điều tra
+172.	regional (adj): thuộc về khu vực
+173.	demand (n): nhu cầu
+174.	lightly (adv): nhẹ nhàng
+175.	loyally (adv): một cách trung thành
+176.	actively (adv): một cách tích cực
+177.	cleanly (adv): sạch sẽ
+178.	actively (adv): một cách tích cực
+179.	energetically (adv): đầy năng lượng
+180.	solicit (v): yêu cầu, xin
+181.	request (v): yêu cầu
+182.	campaign (n) chiến dịch
+183.	endeavor: nổ lực
+184.	engage (v): thuê/thu hút
+185.	undergo (v): trải qua
+186.	absorb (v): hấp thụ
+187.	overwhelm (v): áp đảo
+188.	intend (v): có ý định, dự định
+189.	intend to do something: có ý định làm gì
+190.	intend for: để cho, dành cho
+191.	absorb water: hấp thụ nước
+192.	absorb information: tiếp thu thông tin
+193.	take in: hấp thu
+194.	prevent (v): ngăn chặn
+195.	prevent from: ngăn chặn từ, ngăn chặn khỏi
+196.	prevent damage: ngăn ngừa thiệt hại
+197.	avoid (v): tránh
+198.	flood (n): ngập lụt, lụt
+199.	flash flooding: lũ quét
+200.	inundation (n): ngập lụt, sự tràn vào 
