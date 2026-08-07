@@ -76,6 +76,21 @@ body, html {
 .progress-container { flex: 1; height: 8px; background-color: var(--border-color); border-radius: 10px; overflow: hidden; }
 .progress-bar { height: 100%; background-color: var(--primary-color); width: 0%; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
 .stats-text { font-size: 1rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
+/* Nút Quay Lại */
+.btn-back {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px 0 0;
+    transition: color 0.2s, transform 0.1s;
+}
+.btn-back:active { transform: scale(0.85); }
+.btn-back:hover { color: var(--text-main); }
 
 /* VÙNG CHỨA THẺ & HIỆU ỨNG BAY (FLY) */
 .card-scene {
