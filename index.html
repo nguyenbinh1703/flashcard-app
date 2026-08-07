@@ -148,7 +148,7 @@
 
         .word-main {
             font-size: clamp(2.5rem, 12vw, 6.5rem); font-weight: 800; color: var(--primary-color);
-            line-height: 1.1; letter-spacing: -0.02em; word-wrap: break-word; width: 100%;
+            line-height: 1.1; letter-spacing: -0.02em; width: 100%;
         }
 
         .word-type {
@@ -373,7 +373,7 @@
             regions.forEach(region => {
                 region.text.style.fontSize = ''; 
                 let currentFontSize = parseFloat(window.getComputedStyle(region.text).fontSize);
-                while (region.container.scrollHeight > Math.ceil(region.container.clientHeight) && currentFontSize > 14) {
+                while ((region.container.scrollHeight > Math.ceil(region.container.clientHeight) || region.text.scrollWidth > region.text.clientWidth) && currentFontSize > 14) {
                     currentFontSize -= 1; 
                     region.text.style.fontSize = currentFontSize + 'px';
                 }
