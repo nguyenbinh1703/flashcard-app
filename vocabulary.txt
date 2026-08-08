@@ -1535,3 +1535,71 @@
 252.	real estate agent: đại lý bất động sản
 253.	real estate market: thị trường bất động sản
 254.	property (n): tài sản
+255.	disruptive (adj): gây gián đoạn
+256.	cooperative (adj): hợp tác
+257.	grateful (adj): biết ơn
+258.	concerned (adj): lo lắng/liên quan
+259.	Cooperative agreement: thoả thuận hợp tác
+260.	cooperative effort: nổ lực hợp tác
+261.	collaborative (adj): cộng tác, có tính hợp tác
+262.	purchase (v): mua
+263.	restrict (v): hạn chế
+264.	restrictions (n): các sự hạn chế/quy định
+265.	parking restrictions: các quy định đậu xe
+266.	opposition (n): sự phản đối
+267.	resistance (n): sự kháng cự
+268.	permanent resident: cư dân thường trú
+269.	diligently (adv): một cách siêng năng/chăm chỉ
+270.	scientifically (adv): một cách khoa học
+271.	objectively (adv): một cách khách quan
+272.	decidedly (adv): một cách dứt khoát
+273.	extensive (adj): chuyên sâu, rộng khắp
+274.	damage (adj): thiệt hại, bị hư hỏng
+275.	comprehensive (adj): toàn diện
+276.	diligently (adv): một cách siêng năng, cần cù
+277.	assiduously (adv): cần mẫn, tận tuỵ
+278.	position (n): vị trí
+279.	even for: ngay cả
+280.	plumbing (n): sự hàn chì, sự sửa ống nước
+281.	require (v): yêu cầu
+282.	assurance (n): sự đảm bảo
+283.	assuredly (adv): một cách chắc chắn
+284.	assure (v): đảm bảo
+285.	fixed price assurance: sự đảm bảo giá cả cố định
+286.	guarantee (n): sự đảm bảo
+287.	deduction (n): sự khấu trừ/suy luận
+288.	duplication (n): sự sao chép
+289.	declaration (n): sự tuyên bố
+290.	dedication (n): sự cống hiến/tận tâm
+291.	chief (adj): chính, trọng yếu
+292.	analytic (n): sự phân tích
+293.	analysis (n): sự phân tích
+294.	commitment (n): sự cam kết
+295.	up to (prep): lên đến
+296.	as though (conj): như thể là
+297.	each time (adv): mỗi lần
+298.	rather than (phrase): thay vì
+299.	instead of: thay vì
+300.	commercial supplier: nhà cung cấp thương mại, các đơn vị cung cấp hàng hóa cho mục đích kinh doanh
+301.	lumber (n): gỗ xẻ, chỉ gỗ đã đặc cắt gọn gàng thành các khối
+302.	supplier (n): nhà cung cấp
+303.	primary supplier: nhà cung cấp chính
+304.	vendor (n): người bán hàng
+305.	commercial (adj): thuộc về thương mại
+306.	commercial break: thời gian quảng cáo, thời gian chương trình chính nghỉ để quảng cáo
+307.	diagnose (v): đã chẩn đoán
+308.	diagnostic (adj): thuộc chẩn đoán
+309.	diagnosable (adj): có thể chẩn đoán
+310.	diagnostic fee: phí chẩn đoán
+311.	equipment (n): thiết bị
+312.	mechanic (n): thợ máy, cơ khí
+313.	auto mechanic: thợ sửa ô tô
+314.	engineer (n): kỹ sư
+315.	repair (v – n): sửa chữa – sự sửa chữa
+316.	restoration (n): sự khôi phục
+317.	determine (v): xác định, quyết định
+318.	determine the outcome: xác định kết quả
+319.	determine eligibility: xác định đủ điều kiện
+320.	ascertain: xác minh, xác định
+321.	entire (adj): toàn bộ
+322.	whole (adj): toàn bộ
