@@ -1279,6 +1279,7 @@
 45.	violate (v): vi phạm quy tắc hoặc luật pháp
 46.	wellness (n): trạng thái khỏe mạnh; không bị bệnh
 47.	workbook (n): sách bài tập
+ 
 * test 1 – part 5
 1.	lecture (n): bài giảng
 2.	guest lecture (n): bài giảng của khách mời
@@ -1479,4 +1480,58 @@
 197.	avoid (v): tránh
 198.	flood (n): ngập lụt, lụt
 199.	flash flooding: lũ quét
-200.	inundation (n): ngập lụt, sự tràn vào 
+200.	inundation (n): ngập lụt, sự tràn vào
+201.	producer (n): nhà sản xuất
+202.	produce (v): đã sản xuất
+203.	productive (adj): năng suất
+204.	productivity (n): năng suất/hiệu suất
+205.	aim (v): nhằm mục đích
+206.	target (n): mục tiêu
+207.	increase  (v): tăng lên
+208.	boost (v): thúc đẩy, tăng cường
+209.	efficiency (n): hiệu quả, năng suất
+210.	in (prep): trong/ở trong
+211.	at (prep): tại
+212.	except (prep): ngoại trừ
+213.	apart (adv): tách biệt
+214.	role in doing something: Vai trò trong việc làm gì
+215.	vote (v): bỏ phiếu
+216.	vote against: bỏ phiếu chống lại
+217.	elect (v): bầu cử
+218.	award (n – v): giải thưởng – trao tặng
+219.	grant (n – v): sự trợ cấp – ban cho
+220.	award a prize: trao giải
+221.	award a contract: trao hợp đồng
+222.	bonus (n): tiền thưởng
+223.	annual (adj): hằng năm
+224.	along (prep): dọc theo
+225.	furthermore (adv): hơn nữa
+226.	cautiously (adv): một cách thận trọng
+227.	so that (conj): để mà
+228.	director (n): giám đốc
+229.	executive director (n): giám đốc điều hành
+230.	board of directors (n): ban giám đốc
+231.	approval (n): sự chấp thuận
+232.	gain approval: đạt được sự chấp thuận
+233.	consent (n): sự đồng ý
+234.	reply (v): phản hồi
+235.	capture (v): nắm bắt/chụp
+236.	compensate (v): bù đắp, đền bù
+237.	accumulate (v): tích lũy
+238.	compensate for something: bù đắp cho một thiếu sót nào đó
+239.	make up for: đền bù
+240.	myself (pron): chính tôi
+241.	neither (det/pron): không ai trong cả hai, không ai trong số đó
+242.	anybody (pron): bất cứ ai
+243.	whoever (pron): bất cứ ai
+244.	qualified (adj): có năng lực, đủ tiêu chuẩn
+245.	competent (adj): có năng lực
+246.	even though (conj): mặc dù
+247.	however (adv): tuy nhiên
+248.	until (prep/conj): cho đến khi
+249.	despite (prep): mặc dù
+250.	in spite of: bất kể
+251.	real estate: bất động sản
+252.	real estate agent: đại lý bất động sản
+253.	real estate market: thị trường bất động sản
+254.	property (n): tài sản
